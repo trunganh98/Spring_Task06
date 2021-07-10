@@ -14,9 +14,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         try {
             auth.inMemoryAuthentication()
-                    .withUser("user").password("{noop}password").roles("USER")
+                    .withUser("trunganh").password("{noop}123456").roles("USER")
                     .and()
-                    .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
+                    .withUser("admin").password("{noop}123456").roles("USER", "ADMIN");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +35,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginProcessingUrl("/authenticateTheUser")
                     .permitAll()
                 .and()
-                    .logout().permitAll();
+                    .logout().permitAll()
+                .and()
+                    .exceptionHandling().accessDeniedPage("/access-denied");
     }
 
 }

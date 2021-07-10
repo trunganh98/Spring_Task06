@@ -20,4 +20,9 @@ public class SpringSecurityDemoApplication {
         return String.format("Users: Hello %s!", name);
     }
 
+    @GetMapping("/admin")
+    public String sayAdmin(@RequestParam(value = "myName", defaultValue = "world") String name) {
+        return String.format("Admin: Hello %s!", name);
+    }
+
 }
